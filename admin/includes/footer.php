@@ -7,6 +7,9 @@
     <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
     <script type="text/javascript" src="js/plugins/chart.js"></script>
+	<script type="text/javascript" src="js/plugins/dropzone.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+
     <script type="text/javascript">
       var data = {
       	labels: ["January", "February", "March", "April", "May"],
