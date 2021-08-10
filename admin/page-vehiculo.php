@@ -15,7 +15,7 @@
           <div class="tile">
             <div class="row">
               <div class="col-lg-12">
-                <form action="inservehiculo.php" method="POST" enctype="multipart/form-data">
+                <form action="funciones/inservehiculo.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="col-form-label" for="nummatricula">Numero de matricula</label>
                         <input class="form-control" type="text" name="nummatricula" id="nummatricula" placeholder="Numero matricula">
@@ -24,7 +24,7 @@
                    <div class="form-group">
                     <label for="nommodelo">Modelo</label>
                     <select class="form-control" name="nommodelo" id="nommodelo">
-                      <option>2</option>
+                      <option value="1">1</option>
                       <option>3</option>
                       <option>4</option>
                       <option>5</option>
@@ -38,17 +38,13 @@
                         <label class="col-form-label" for="cvehiculo">Color Vehiculo</label>
                         <input class="form-control" type="text" name="cvehiculo" id="cvehiculo" placeholder="Color">
                    </div>
-                   <div class="form-group">
-                        <label class="col-form-label" for="evehiculo">Estado vehiculo</label>
-                        <input class="form-control" type="text" name="evehiculo" id="evehiculo"  placeholder="Estado">
-                   </div>
-                    <div class="form-group ">
-                        <label class="col-form-label" for="subimg">Subir Imagen</label>
-                        <div  class="dropzone" id="myDropzone">
-                         </div>
+                    <div class="form-group">
+        
                     </div>
+
+                   </div>
                     <div class="tile-footer">
-                    <button class="btn btn-primary" type="submit"  id="submit-all">Enviar</button>
+                    <button class="btn btn-primary" type="submit-all"  id="">Enviar</button>
                     </div>
                 </form>
               </div>

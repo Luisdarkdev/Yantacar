@@ -18,8 +18,8 @@
             return $resultado;
         }
         # Funcion para Insertar vehiculo
-        public function InsertarVehiculo($nom){
-            $resultado = $this->bd->query("INSERT INTO  vehiculos ( NUM_MAT_VE,NOM_MOD,KM_VE,COLOR_VE,IMG_VE) VALUES ('$nom')");
+        public function InsertarVehiculo($nummatricula,$nommodelo,$kvehiculo,$cvehiculo,$ruta){
+            $resultado = $this->bd->query("INSERT INTO  vehiculos ( NUM_MAT_VE,NOM_MOD,KM_VE,COLOR_VE,IMG_VE) VALUES ('$nummatricula','$nommodelo','$kvehiculo','$cvehiculo','$ruta')");
             return true;
             }
         # Funcion para eliminar Paralelos
