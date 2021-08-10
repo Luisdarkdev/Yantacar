@@ -15,14 +15,15 @@
           <div class="tile">
             <div class="row">
               <div class="col-lg-12">
-                <form action="" method="POST">
+                <form action="inservehiculo.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="col-form-label" for="nummatricula">Numero de matricula</label>
-                        <input class="form-control" type="text" name="nummatricula" placeholder="Numero matricula">
+                        <input class="form-control" type="text" name="nummatricula" id="nummatricula" placeholder="Numero matricula">
+
                    </div>
                    <div class="form-group">
                     <label for="nommodelo">Modelo</label>
-                    <select class="form-control" name="nommodelo">
+                    <select class="form-control" name="nommodelo" id="nommodelo">
                       <option>2</option>
                       <option>3</option>
                       <option>4</option>
@@ -31,33 +32,28 @@
                   </div>
                   <div class="form-group">
                         <label class="col-form-label" for="kvehiculo">Kilometraje vehiculo</label>
-                        <input class="form-control" type="text" name="kvehiculo" placeholder="Kilometraje vehiculo">
+                        <input class="form-control" type="text" name="kvehiculo" id="kvehiculo" placeholder="Kilometraje vehiculo">
                    </div>
                    <div class="form-group">
                         <label class="col-form-label" for="cvehiculo">Color Vehiculo</label>
-                        <input class="form-control" type="text" name="cvehiculo" placeholder="Color">
+                        <input class="form-control" type="text" name="cvehiculo" id="cvehiculo" placeholder="Color">
                    </div>
                    <div class="form-group">
                         <label class="col-form-label" for="evehiculo">Estado vehiculo</label>
-                        <input class="form-control" type="text" name="evehiculo" placeholder="Estado">
+                        <input class="form-control" type="text" name="evehiculo" id="evehiculo"  placeholder="Estado">
                    </div>
-                  <div class="form-group ">
-                  <label class="col-form-label" for="subimg">Subir Imagen</label>
-                  <div action="/file-upload" class="dropzone" id="myDrop">
-                        <div class="fallback">
-                            <input name="file" type="file"  />
-                        </div>
-                        </div>
-                        
-                      </div>
-                
-                  </div>
+                    <div class="form-group ">
+                        <label class="col-form-label" for="subimg">Subir Imagen</label>
+                        <div  class="dropzone" id="myDropzone">
+                         </div>
+                    </div>
+                    <div class="tile-footer">
+                    <button class="btn btn-primary" type="submit"  id="submit-all">Enviar</button>
+                    </div>
                 </form>
               </div>
             </div>
-            <div class="tile-footer">
-              <button class="btn btn-primary" type="submit">Submit</button>
-            </div>
+
           </div>
         </div>
       </div>
