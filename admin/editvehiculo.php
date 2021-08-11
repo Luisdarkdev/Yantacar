@@ -1,8 +1,10 @@
+
 <?php
     require_once 'config/config.php';
     require_once 'config/clase_sql.php';
 $clase_ve = new Clase_sql();
-   
+$result_mod = $clase_ve-> ConsultaModelos();
+
 if(isset($_GET['NUM_MAT_VE'])){
     $cod = $_GET['NUM_MAT_VE'];
     $result = $clase_ve-> ConsultarVehiculoUnico($cod);
@@ -56,11 +58,10 @@ if(isset($_POST['actualizar'])){
                    </div>
                    <div class="form-group">
                     <label for="nommodelo">Modelo</label>
-                    <select class="form-control" name="nommodelo" id="nommodelo" value="<?php echo $modelo;?>">
-                      <option value="1">1</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                    <select class="form-control" name="nommodelo" id="nommodelo" >
+                    <?php while($fic = $result_mod->fetch_assoc()){?>
+                        <option value="<?php echo $fic['NOM_MOD']?>"><?php echo $fic['NOM_MOD']?></option>
+                    <?php } ?>
                     </select>
                   </div>
                   <div class="form-group">
