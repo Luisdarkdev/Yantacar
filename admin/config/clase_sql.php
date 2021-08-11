@@ -43,8 +43,35 @@
             # Consultas Sql
             # query "es la consulta" ("consulta sql")
             $resultado = $this->bd->query("SELECT NOM_MOD FROM model_v");
+            return $resultado;   
+        }
+        #Funcion para Consultar Modelo
+        public function ConsultaModeloGeneral(){
+            # Consultas Sql
+            # query "es la consulta" ("consulta sql")
+            $resultado = $this->bd->query("SELECT * FROM model_v");
             return $resultado;
-     }
-
+        }
+        # Funcion para Insertar Modelo
+        public function InsertarModelo($nommodelo,$marmodel,$premodel,$combustible,$trasnmision,$capacidad){
+            $resultado = $this->bd->query("INSERT INTO  model_v ( NOM_MOD,MARCA_MOD,PRECIO_MOD,CONBUSTIBE,TRANSMISION,CAPACIDAD) VALUES ('$nommodelo','$marmodel','$premodel','$combustible','$trasnmision','$capacidad')");
+            return true;
+            }
+        # Funcion para eliminar Modelo
+        public function EliminarModelo($id){
+            $resultado = $this->bd->query("DELETE FROM model_v WHERE NOM_MOD = '$id'");
+            return $resultado;
+        }
+        # Funcion para Visualizar Modelo Unico
+        public function ConsultarModeloUnico($cod){
+            $resultado = $this->bd->query("SELECT * FROM model_v WHERE NOM_MOD = '$cod'");
+            return $resultado;
+        }
+        
+        # Funcion para Actualizar Modelo
+        public function ActualizarModelo($cod,$nommodelo,$marmodel,$premodel,$combustible,$trasnmision,$capacidad){
+            $resultado = $this->bd->query("UPDATE model_v set NOM_MOD ='$nommodelo' ,MARCA_MOD ='$marmodel',PRECIO_MOD = '$premodel',CONBUSTIBE ='$combustible',TRANSMISION = '$trasnmision',CAPACIDAD ='$capacidad' WHERE NOM_MOD = '$cod'");
+            return true;
+        }
     }
 ?>
