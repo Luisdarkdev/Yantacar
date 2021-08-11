@@ -1,3 +1,4 @@
+
 <?php
     require_once '../config/config.php';
     require_once '../config/clase_sql.php';
@@ -7,16 +8,18 @@
     $nommodelo = $_POST['nommodelo'];
     $kvehiculo = $_POST['kvehiculo'];
     $cvehiculo = $_POST['cvehiculo'];
-    $ruta =
- $vimage1=$_FILES["file"]["name"];
+    $vimage1=$_FILES["file"]["name"];
     $archivo=$_FILES["file"]["tmp_name"];
     $ruta="../images/imgcar";
     $ruta=$ruta."/".$vimage1;
     move_uploaded_file($archivo,$ruta);
 
-echo $ruta;
-    $result = $clase_usu-> InsertarVehiculo($nummatricula,$nommodelo,$kvehiculo,$cvehiculo,$ruta);
+    $result = $clase_usu-> InsertarVehiculo($nummatricula,$nommodelo,$kvehiculo,$cvehiculo,$vimage1);
+
+  /*  $_SESSION['mensaje']= 'Se guardo correctamente';
+    $_SESSION['tipo']= 'success';*/
+
     // header ('Location: consulta_cliente.php');
-  //header ('Location: insertarusu.php');
+  header ('Location: ../page-vehiculo.php');
 
 ?>
