@@ -31,7 +31,7 @@ include ("includes/header.php")
                 <form action="funciones/insertcliente.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                     <div class="form-group">
                         <label class="col-form-label" for="nummident">ID/RUC</label>
-                        <input class="form-control" type="text" name="nummident" id="nummatricula" placeholder="Ingresar numero de identificacion" required>
+                        <input class="form-control" type="number" name="nummident" id="nummatricula" placeholder="Ingresar numero de identificacion" required>
                                 <div class="invalid-feedback">Campo vacío Ingrese numero de identificacion</div>
 
                    </div>
@@ -61,13 +61,13 @@ include ("includes/header.php")
                    </div>
                    <div class="form-group">
                         <label class="col-form-label" for="Numtelef">Numero de Telefono</label>
-                        <input class="form-control" type="text" name="Numtelef" id="cvehiculo" placeholder="Ingresar Numero de Telefono" required>
+                        <input class="form-control" type="number" name="Numtelef" id="cvehiculo" placeholder="Ingresar Numero de Telefono" required>
                                 <div class="invalid-feedback">Campo vacío Ingrese Telefono</div>
                    </div>
                    <div class="form-group">
                         <label class="col-form-label" for="correo">Correo</label>
-                        <input class="form-control" type="text" name="correo" id="correo" placeholder="example@gmail.com" required>
-                                <div class="invalid-feedback">Campo vacío Ingrese Correo</div>
+                        <input class="form-control" type="email" name="correo" id="email" placeholder="example@gmail.com" required>
+                        <span id="emailOK"></span>
                    </div>
                    <div class="form-group">
                         <label class="col-form-label" for="contra">Contraseña</label>

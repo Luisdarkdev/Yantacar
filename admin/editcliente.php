@@ -59,7 +59,7 @@ include ("includes/header.php")
             <form action="editcliente.php?CED_CLI=<?php echo $_GET['CED_CLI'];?>" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                 <div class="form-group">
                     <label class="col-form-label" for="nummident">Numero de identificacion</label>
-                    <input class="form-control" type="text" name="nummident" id="nummatricula" placeholder="Ingresar numero de identificacion" value="<?php echo $cedula; ?>" required>
+                    <input class="form-control" type="number" name="nummident" id="nummatricula" placeholder="Ingresar numero de identificacion" value="<?php echo $cedula; ?>" required>
                             <div class="invalid-feedback">Campo vacío Ingrese numero de identificacion</div>
 
                </div>
@@ -89,13 +89,14 @@ include ("includes/header.php")
                </div>
                <div class="form-group">
                     <label class="col-form-label" for="Numtelef">Numero de Telefono</label>
-                    <input class="form-control" type="text" name="Numtelef" id="cvehiculo" placeholder="Ingresar Numero de Telefono"value="<?php echo $telefono; ?>" required>
+                    <input class="form-control" type="number" name="Numtelef" id="cvehiculo" placeholder="Ingresar Numero de Telefono"value="<?php echo $telefono; ?>" required>
                             <div class="invalid-feedback">Campo vacío Ingrese Telefono</div>
                </div>
                <div class="form-group">
                         <label class="col-form-label" for="correo">Correo</label>
-                        <input class="form-control" type="text" name="correo" id="correo" placeholder="example@gmail.com" value="<?php echo $ccorreo; ?>"  required>
-                                <div class="invalid-feedback">Campo vacío Ingrese Correo</div>
+                        <input class="form-control" type="email" name="correo" id="email" placeholder="example@gmail.com" value="<?php echo $ccorreo; ?>"  required>
+                        <span id="emailOK"></span>
+
                    </div>
                    <div class="form-group">
                         <label class="col-form-label" for="contra">Contraseña</label>

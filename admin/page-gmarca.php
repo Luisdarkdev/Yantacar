@@ -41,12 +41,14 @@
                         <td class="text-center"> <?php echo $f['NOM_MARC']; ?> </td>
                         <td class="text-center"> <img src="<?php echo substr($f['IMG_MARCA'],3); ?>" width="100" alt="">  </td>
                         <td class="text-center">
-                            <a href="editmarca.php?NOM_MARC=<?php echo $f['NOM_MARC']?>" class="btn btn-success">
-                            <i class="fa fa-pencil-square-o"></i>   
-                            </a>
-                            <a href="funciones/deletemarca.php?NOM_MARC=<?php echo $f['NOM_MARC']?>" class="btn btn-danger">
-                            <i class="fa fa-trash"></i>
-                            </a>
+                        <ul class="navbar-nav mr-auto">
+                          <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" ><i class="fa fa-cog fa-lg text-primary fa-lg" ></i></a>
+                          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                            <li><a class="dropdown-item" href="editmarca.php?NOM_MARC=<?php echo $f['NOM_MARC']?>"><i class="fa fa-pencil fa-lg"></i> Editar</a></li>
+                            <li><a class="dropdown-item"href="funciones/deletemarca.php?NOM_MARC=<?php echo $f['NOM_MARC']?>"><i class="fa fa-trash fa-lg"></i> Eliminar</a></li>
+                            </ul>
+                          </li>
+                          </ul>
                         </td>                    
                     </tr>
                     

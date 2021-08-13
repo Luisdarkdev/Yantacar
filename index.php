@@ -1,4 +1,9 @@
-
+<?php
+    require_once 'admin/config/config.php';
+    require_once 'admin/config/clase_sql.php';
+$clase_ve = new Clase_sql();
+$result_cli = $clase_ve->ConsultaMarcaGeneral();
+?>
 <?php
 include ("includes/header.php")
 ?>
@@ -16,7 +21,7 @@ include ("includes/header.php")
                         <!-- Text title -->
                         <h1 class="title">El mejor<br>Transporte</h1>
                         <!-- /Text title -->
-                        <div class="button"><a href="#">Ver detalles</a></div>
+                        
                     </div>
                 </div>
                <!-- /Texts container -->
@@ -27,7 +32,7 @@ include ("includes/header.php")
                 <div class="slide_content">
                     <div class="slide_content_wrap">
                         <h1 class="title">Conoce<br>Viaja y disfruta</h1>
-                       	<div class="button"><a href="#">Ver Detalles</a></div>
+                      
                     </div>
                 </div>
             </div>
@@ -43,59 +48,21 @@ include ("includes/header.php")
 			<h3 class="m_3">MARCAS</h3>
 			<div class="close_but"><i class="close1"> </i></div>
 			  <div class="row">
+        <?php while($f = $result_cli->fetch_assoc()){ ?>
+          
 				<div class="col-md-3 top_box">
-				  <div class="view view-ninth"><a href="single.html">
-                    <img src="images/pic1.jpg" class="img-responsive" alt=""/>
+				  <div class="view view-ninth"><a href="marcasphp">
+                    <img src="admin/<?php echo substr($f['IMG_MARCA'],3); ?>" class="img-responsive" alt=""/>
                     <div class="mask mask-1"> </div>
                     <div class="mask mask-2"> </div>
                       <div class="content">
-                        <h2>Hover Style #9</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
+                        <h2>Los mejores Vehiculos</h2>
+                        <p>Solo lo encuentras en Yantcar</p>
                       </div>
-                   </a> </div
-                  </div>
-                  <h4 class="m_4"><a href="#">nostrud exerci ullamcorper</a></h4>
-                  <p class="m_5">claritatem insitam</p>
-                </div>
-                <div class="col-md-3 top_box">
-					<div class="view view-ninth"><a href="single.html">
-                    <img src="images/pic2.jpg" class="img-responsive" alt=""/>
-                    <div class="mask mask-1"> </div>
-                    <div class="mask mask-2"> </div>
-                      <div class="content">
-                        <h2>Hover Style #9</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
-                      </div>
-                    </a> </div>
-                   <h4 class="m_4"><a href="#">nostrud exerci ullamcorper</a></h4>
-                   <p class="m_5">claritatem insitam</p>
-				</div>
-				<div class="col-md-3 top_box">
-					<div class="view view-ninth"><a href="single.html">
-                    <img src="images/pic3.jpg" class="img-responsive" alt=""/>
-                    <div class="mask mask-1"> </div>
-                    <div class="mask mask-2"> </div>
-                      <div class="content">
-                        <h2>Hover Style #9</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
-                      </div>
-                    </a> </div>
-                   <h4 class="m_4"><a href="#">nostrud exerci ullamcorper</a></h4>
-                   <p class="m_5">claritatem insitam</p>
-				</div>
-				<div class="col-md-3 top_box1">
-					<div class="view view-ninth"><a href="single.html">
-                    <img src="images/pic4.jpg" class="img-responsive" alt=""/>
-                    <div class="mask mask-1"> </div>
-                    <div class="mask mask-2"> </div>
-                      <div class="content">
-                        <h2>Hover Style #9</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
-                      </div>
-                     </a> </div>
-                   <h4 class="m_4"><a href="#">nostrud exerci ullamcorper</a></h4>
-                   <p class="m_5">claritatem insitam</p>
-				</div>
+                   </a> </div>
+                  <h4 class="m_4"><a href="marcas.php"><?php echo $f['NOM_MARC']; ?></a></h4>
+            </div>
+            <?php }?>
 			</div>
 		 </div>
 	    </div>

@@ -46,7 +46,7 @@ include ("includes/header.php")
               <div class="col-lg-12">
                 <form action="editmarca.php?NOM_MARC=<?php echo $_GET['NOM_MARC'];?>" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                     <div class="form-group">
-                        <label class="col-form-label" for="marca">Ingrese Nombre del Marca</label>
+                        <label class="col-form-label text-uppercase" for="marca">Ingrese Nombre del Marca</label>
                         <input class="form-control" type="text" name="marca" placeholder="Marca" value="<?php echo $nom_mar; ?>" required>
                                 <div class="invalid-feedback">Campo vacío Ingrese marca</div>
                    </div>

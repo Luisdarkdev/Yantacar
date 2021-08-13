@@ -18,8 +18,8 @@
             return $resultado;
         }
         # Funcion para Insertar vehiculo
-        public function InsertarVehiculo($nummatricula,$marca,$nommodel,$kvehiculo,$cvehiculo,$capacidad,$combustible,$transmision,$presio,$ruta){
-            $resultado = $this->bd->query("INSERT INTO  vehiculos ( NUM_MAT_VE,NOM_MARC,NOM_MODEL,KM_VE,COLOR_VE,CAPACIDAD,COMBUSTIBLE,TRANSMISION,PRECIO_VE,IMG_VE) VALUES ('$nummatricula','$marca','$nommodel','$kvehiculo','$cvehiculo','$capacidad','$combustible','$transmision','$presio','$ruta')");
+        public function InsertarVehiculo($nummatricula,$marca,$nommodel,$kvehiculo,$cvehiculo,$capacidad,$combustible,$transmision,$presio,$an,$ruta){
+            $resultado = $this->bd->query("INSERT INTO  vehiculos ( NUM_MAT_VE,NOM_MARC,NOM_MODEL,KM_VE,COLOR_VE,CAPACIDAD,COMBUSTIBLE,TRANSMISION,PRECIO_VE,	ANO,ESTADO,IMG_VE) VALUES ('$nummatricula','$marca','$nommodel','$kvehiculo','$cvehiculo','$capacidad','$combustible','$transmision','$presio','$an','disponible','$ruta')");
             return true;
             }
         # Funcion para eliminar Vehiculo
@@ -35,8 +35,8 @@
         }
         
         # Funcion para Actualizar Paralelos
-        public function ActualizarVehiculo($cod,$nummatricula,$marca,$nommodel,$kvehiculo,$cvehiculo,$capacidad,$combustible,$transmision,$presio,$ruta){
-            $resultado = $this->bd->query("UPDATE vehiculos set  NUM_MAT_VE='$nummatricula',NOM_MARC='$marca',NOM_MODEL='$nommodel',KM_VE='$kvehiculo',COLOR_VE='$cvehiculo',CAPACIDAD='$capacidad',COMBUSTIBLE='$combustible',TRANSMISION='$transmision',PRECIO_VE='$presio',IMG_VE='$ruta' WHERE NUM_MAT_VE = '$cod'");
+        public function ActualizarVehiculo($cod,$nummatricula,$marca,$nommodel,$kvehiculo,$cvehiculo,$capacidad,$combustible,$transmision,$presio,$an,$ruta){
+            $resultado = $this->bd->query("UPDATE vehiculos set  NUM_MAT_VE='$nummatricula',NOM_MARC='$marca',NOM_MODEL='$nommodel',KM_VE='$kvehiculo',COLOR_VE='$cvehiculo',CAPACIDAD='$capacidad',COMBUSTIBLE='$combustible',TRANSMISION='$transmision',PRECIO_VE='$presio',ANO='$an',IMG_VE='$ruta' WHERE NUM_MAT_VE = '$cod'");
             return true;
         }
         public function ConsultaMarca(){
@@ -79,8 +79,8 @@
             $resultado = $this->bd->query("SELECT * FROM incidencia");
             return $resultado;
         }
-        public function InsertarIncidente($matricula,$incidencias){
-            $resultado = $this->bd->query("INSERT INTO  incidencia (NUM_MAT_VE,DES_INCI) VALUES ('$matricula','$incidencias')");
+        public function InsertarIncidente($matricula,$date,$incidencias){
+            $resultado = $this->bd->query("INSERT INTO  incidencia (NUM_MAT_VE,FECHA,DES_INCI) VALUES ('$matricula','$date','$incidencias')");
             return true;
             }
              # Funcion para eliminar Incidente
@@ -121,6 +121,57 @@
         $resultado = $this->bd->query("INSERT INTO  clientes (CED_CLI,TIPO_CLIENTE,NOM_TCLI,APE_CLI,DIR_CLI,TELF_CLIF,COR_CLI,PASS_CLI) VALUES ('$nummident','$Tcliente','$Inombres','$Iapellidos','$Idireccion','$Numtelef','$correo','$contra')");
         return true;
         }
+        # funcion para ingresar reservas
+        public function InsertarReserva($nummat,$cliente,$dat,$date,$date1,$precio){
+            $resultado = $this->bd->query("INSERT INTO  reservas (NUM_MAT_VE,	CED_CLI,	FECHA_RE,	FECHA_INI_RE,	FECHA_FIN,	PRECIO, ESTADO) VALUES ('$nummat','$cliente','$dat','$date','$date1','$precio','En espera')");
+            return true;
+            }
+        public function  ConsultaReservaGeneral(){
+            $resultado = $this->bd->query("SELECT * FROM reservas");
+            return $resultado;
+        }
+        public function ConsultarReservaUnico($cod){
+            $resultado = $this->bd->query("SELECT * FROM reservas WHERE COD_RE = '$cod'");
+            return $resultado;
+        }
+        public function ActualizarReserva($cod,$nummat,$cliente,$dat,$date,$date1,$precio){
+            $resultado = $this->bd->query("UPDATE reservas  set NUM_MAT_VE='$nummat',CED_CLI='$cliente',FECHA_RE='$dat',FECHA_INI_RE='$date',FECHA_FIN='$date1',	PRECIO='$precio' WHERE COD_RE = '$cod'");
+            return true;
+        }
+        public function CancelarReserva($cod){
+            $resultado = $this->bd->query("UPDATE reservas  set ESTADO='Cancelado' WHERE COD_RE = '$cod'");
+            return true;
+        }
+        public function InsertarAlquiler1($num,$cod,$ced,$fechaActual,$fei,$fef,$pre){
+            $resultado = $this->bd->query("INSERT INTO  alquiler (NUM_MAT_VE,	COD_RE,	CED_CLI,	FECHA_AL,	FECHA_INI_AL,	FECHA_FIN_AL,	PRECIO,	ESTADO) VALUES ('$num','$cod','$ced','$fechaActual','$fei','$fef','$pre','En proceso')");
+            return true;
+
+        }
+        public function Actualizarreser($cod){
+            $resultado = $this->bd->query("UPDATE reservas  set ESTADO='Entregado' WHERE COD_RE = '$cod'");
+            return true;
+        }
+        public function  ConsultaAlquilerGeneral(){
+            $resultado = $this->bd->query("SELECT * FROM alquiler");
+            return $resultado;
+        }
+        public function InsertarUsuario($cedula,$usuario,$contra,$correo){
+            $resultado = $this->bd->query("INSERT INTO  usuarios (CED_USU,	NOM_USE,	PASS_USE,	COR_USE) VALUES ('$cedula','$usuario','$contra','$correo')");
+            return true;
+
+        }
+        public function ConsultaUsuarioClave($ced, $cla){
+            $resultado = $this->bd->query("SELECT * FROM usuarios  WHERE CED_USU='$ced' AND  PASS_USE='$cla'");
+            return $resultado;
+              
+        }
+        public function ActualizarUsuario($cedula,$usuario,$contra,$correo){
+            $resultado = $this->bd->query("UPDATE usuarios  set NOM_USE='$usuario', PASS_USE='$contra',COR_USE='$correo' WHERE CED_USU = '$cedula'");
+            return true;
+        }
+
+ 
+
     
     }
 ?>

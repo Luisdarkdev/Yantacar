@@ -23,7 +23,7 @@ include ("includes/header.php")
                 <form action="funciones/insertmarca.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                     <div class="form-group">
                         <label class="col-form-label" for="marca">Ingrese Nombre del Marca</label>
-                        <input class="form-control" type="text" name="marca" placeholder="Marca" required>
+                        <input class="form-control text-uppercase" type="text" name="marca" placeholder="Marca" required>
                                 <div class="invalid-feedback">Campo vacío Ingrese marca</div>
                    </div>
                    <div class="form-group">

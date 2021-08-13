@@ -13,13 +13,14 @@
     $combustible = $_POST['combustible'];
     $transmision = $_POST['transmision'];
     $presio = $_POST['presio'];
+    $an = $_POST['an'];
     $vimage1=$_FILES["file"]["name"];
     $archivo=$_FILES["file"]["tmp_name"];
     $ruta="../images/imgcar";
     $ruta=$ruta."/".$vimage1;
     move_uploaded_file($archivo,$ruta);
 
-    $result = $clase_usu-> InsertarVehiculo($nummatricula,$marca,$nommodel,$kvehiculo,$cvehiculo,$capacidad,$combustible,$transmision,$presio,$ruta);
+    $result = $clase_usu-> InsertarVehiculo($nummatricula,$marca,$nommodel,$kvehiculo,$cvehiculo,$capacidad,$combustible,$transmision,$presio,$an,$ruta);
 
   /*  $_SESSION['mensaje']= 'Se guardo correctamente';
     $_SESSION['tipo']= 'success';*/

@@ -51,7 +51,7 @@ include ("includes/header.php")
                    
                   <div class="form-group">
                         <label class="col-form-label" for="kvehiculo">Ingrese kilometraje vehiculo</label>
-                        <input class="form-control" type="text" name="kvehiculo" id="kvehiculo" placeholder="Kilometraje" required>
+                        <input class="form-control" type="number" name="kvehiculo" id="kvehiculo" placeholder="Kilometraje" required>
                                 <div class="invalid-feedback">Campo vacío Ingrese vehiculo</div>
                    </div>
                    <div class="form-group">
@@ -61,7 +61,7 @@ include ("includes/header.php")
                    </div>
                    <div class="form-group">
                         <label class="col-form-label" for="capacidad">Capacidad de personas</label>
-                        <input class="form-control" type="text" name="capacidad"  placeholder="Capacidad" required>
+                        <input class="form-control" type="number" name="capacidad"  placeholder="Capacidad" required>
                                 <div class="invalid-feedback">Campo vacío Ingrese capacidad</div>
                    </div>
                    <div class="form-group">
@@ -81,9 +81,14 @@ include ("includes/header.php")
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="col-form-label" for="presio">Precio por dia</label>
-                        <input class="form-control" type="text" name="presio"  placeholder="Precio" required>
+                        <label class="col-form-label" for="presio">Precio por dia/dolares</label>
+                        <input class="form-control" type="number" name="presio"  placeholder="Precio" required>
                                 <div class="invalid-feedback">Campo vacío Ingrese Precio</div>
+                   </div>
+                   <div class="form-group">
+                        <label class="col-form-label" for="an">Año</label>
+                        <input class="form-control" type="number" name="an"  placeholder="año" required>
+                                <div class="invalid-feedback">Campo vacío Ingrese año</div>
                    </div>
                     <div class="form-group">
                     <h5 >Seleccionar imagen</h5>

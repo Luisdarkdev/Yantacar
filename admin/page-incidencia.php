@@ -21,9 +21,14 @@ include ("includes/header.php")
                    <div class="form-group">
                     
                       <label class="control-label" for="matricula">Numero Matricula</label>
-                      <input class="form-control" name="matricula"  type="text"  value="<?php echo $mat = $_GET['NUM_MAT_VE'];?>">
+                      <input readonly class="form-control" name="matricula"  type="text"  value="<?php echo $mat = $_GET['NUM_MAT_VE'];?>">
                     
                   </div>
+                  <div class="form-group">
+                        <label class="col-form-label" for="incidencias">Fecha Incidente</label>
+                        <input type="date" class="form-control" name="date" >
+                              <div class="invalid-feedback">Campo vacío, ingrese fecha</div>
+                   </div>
                    <div class="form-group">
                         <label class="col-form-label" for="incidencias">Describir Incidencias</label>
                         <textarea class="form-control" name="incidencias" rows="3" required></textarea>

@@ -28,7 +28,7 @@
           <i class="fa fa-car"></i><span class="h5 ">  Lista Vehiculos</span> <hr>
             <div class="tile-body">
               <div class="table-responsive">
-                <table class="table table-hover table-bordered" id="sampleTable">
+                <table class="table table-hover table-bordered text-center" id="sampleTable">
                   <thead>
                     <tr>
                       <th>Numero matricula</th>
@@ -40,6 +40,8 @@
                       <th>Combustible</th>
                       <th>Transmision</th>
                       <th>Precio</th>
+                      <th>Año</th>
+                      <th>Estado</th>
                       <th>Imagen</th>
                       <th>Opciones</th>
                     </tr>
@@ -56,17 +58,22 @@
                         <td> <?php echo $f['COMBUSTIBLE']; ?> </td>
                         <td> <?php echo $f['TRANSMISION']; ?> </td>
                         <td> <?php echo $f['PRECIO_VE']; ?> </td>
+                        <td> <?php echo $f['ANO']; ?> </td>
+                        <td> <?php echo $f['ESTADO']; ?> </td>
                         <td> <img src=" <?php echo substr($f['IMG_VE'],3);?>" width="60" alt=""> </td>
-                        <td class="text-center">
-                            <a href="editvehiculo.php?NUM_MAT_VE=<?php echo $f['NUM_MAT_VE']?>" class="btn btn-secondary">
-                            <i class="fa fa-pencil-square-o"></i>   
-                            </a>
-                            <a href="funciones/deletevehiculo.php?NUM_MAT_VE=<?php echo $f['NUM_MAT_VE']?>" class="btn btn-danger">
-                            <i class="fa fa-trash"></i>
-                            </a>
-                            <a href="page-incidencia.php?NUM_MAT_VE=<?php echo $f['NUM_MAT_VE']?>" class="btn btn-warning">
-                            <i class="fa fa-file-text-o"></i>
-                            </a>
+                        <td >
+                          <ul class="navbar-nav mr-auto">
+                          <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" ><i class="fa fa-cog fa-lg text-primary fa-lg" ></i></a>
+                          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                            <li><a class="dropdown-item" href="editvehiculo.php?NUM_MAT_VE=<?php echo $f['NUM_MAT_VE']?>"><i class="fa fa-pencil fa-lg"></i> Editar</a></li>
+                            <li><a class="dropdown-item" href="funciones/deletevehiculo.php?NUM_MAT_VE=<?php echo $f['NUM_MAT_VE']?>"><i class="fa fa-trash fa-lg"></i> Eliminar</a></li>
+                            <li><a class="dropdown-item" href="page-incidencia.php?NUM_MAT_VE=<?php echo $f['NUM_MAT_VE']?>"><i class="fa fa-file fa-lg"></i> Incidente</a></li>
+                            <li><a class="dropdown-item" href="page-reservas.php?NUM_MAT_VE=<?php echo $f['NUM_MAT_VE']?>&PRECIO_VE=<?php echo $f['PRECIO_VE']?>"><i class="fa fa-user-plus fa-lg"></i> Reservar</a></li>
+                            <li><a class="dropdown-item" href="editvehiculo.php?NUM_MAT_VE=<?php echo $f['NUM_MAT_VE']?>"><i class="fa fa-calendar-plus-o fa-lg"></i> Alquilar</a></li>
+                          </ul>
+                          </li>
+                          </ul>
+                          
                         </td>                    
                     </tr>
                     
@@ -77,7 +84,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-12">
           <div class="tile">
           <i class="fa fa-file "></i>   <span class="h5 ">Lista Incidentes</span><hr>
             <div class="tile-body">
@@ -88,6 +95,7 @@
                     <tr>
                       <th>Codigo</th>
                       <th>Numero de Matricula</th>
+                      <th>Fecha</th>
                       <th>Descripcion</th>
                       <th>Opciones</th>
                     </tr>
@@ -97,6 +105,7 @@
                     <tr>
                         <td> <?php echo $f['COD_INCI']; ?> </td>
                         <td> <?php echo $f['NUM_MAT_VE']; ?> </td>
+                        <td> <?php echo $f['FECHA']; ?> </td>
                         <td> <?php echo $f['DES_INCI']; ?> </td>
                         <td class="text-center">
                             <a href="funciones/deleteincidente.php?COD_INCI=<?php echo $f['COD_INCI']?>" class="btn btn-danger">

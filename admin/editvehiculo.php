@@ -17,6 +17,7 @@ if(isset($_GET['NUM_MAT_VE'])){
     $capacidad = $row['CAPACIDAD'];
     $combustible = $row['COMBUSTIBLE'];
     $transmision = $row['TRANSMISION'];
+    $ano = $row['ANO'];
     $presio = $row['PRECIO_VE'];  
 }
 if(isset($_POST['actualizar'])){
@@ -30,6 +31,7 @@ if(isset($_POST['actualizar'])){
     $combustible = $_POST['combustible'];
     $transmision = $_POST['transmision'];
     $presio = $_POST['presio'];
+    $an = $_POST['an'];
     $vimage1=$_FILES["file"]["name"];
     $archivo=$_FILES["file"]["tmp_name"];
     $ruta="images/imgcar";
@@ -37,7 +39,7 @@ if(isset($_POST['actualizar'])){
     move_uploaded_file($archivo,$ruta);
     $ruta="../".$ruta;
 
-    $result = $clase_ve-> ActualizarVehiculo($cod,$nummatricula,$marca,$nommodel,$kvehiculo,$cvehiculo,$capacidad,$combustible,$transmision,$presio,$ruta);
+    $result = $clase_ve-> ActualizarVehiculo($cod,$nummatricula,$marca,$nommodel,$kvehiculo,$cvehiculo,$capacidad,$combustible,$transmision,$presio,$an,$ruta);
 
     // header ('Location: consulta_cliente.php');
   header ('Location: page-gvehiculo.php');
@@ -114,9 +116,14 @@ if(isset($_POST['actualizar'])){
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="col-form-label" for="presio">Precio por dia</label>
+                        <label class="col-form-label" for="presio">Precio por dia/dolares</label>
                         <input class="form-control" type="text" name="presio"  placeholder="Precio"  value="<?php echo $presio;?>" required>
                                 <div class="invalid-feedback">Campo vacío Ingrese Precio</div>
+                   </div>
+                   <div class="form-group">
+                        <label class="col-form-label" for="an">Año</label>
+                        <input class="form-control" type="number" name="an"  placeholder="año" value="<?php echo $ano;?>" required>
+                                <div class="invalid-feedback">Campo vacío Ingrese año</div>
                    </div>
                     <div class="form-group">
                     <h5 >Seleccionar imagen</h5>

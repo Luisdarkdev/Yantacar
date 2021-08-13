@@ -9,6 +9,7 @@
     <script type="text/javascript" src="js/plugins/chart.js"></script>
 	<script type="text/javascript" src="js/plugins/dropzone.js"></script>
 	<script type="text/javascript" src="js/validarDatos.js"></script>
+	<script type="text/javascript" src="js/validarcorreo.js"></script>
 	<!-- Page table-->
 	<script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>

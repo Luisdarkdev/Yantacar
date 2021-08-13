@@ -53,12 +53,14 @@
                         <td> <?php echo $f['COR_CLI']; ?> </td>
                         <td> <?php echo $f['PASS_CLI']; ?> </td>
                         <td>
-                            <a href="editcliente.php?CED_CLI=<?php echo $f['CED_CLI']?>" class="btn btn-success">
-                            <i class="fa fa-pencil-square-o"></i>   
-                            </a>
-                            <a href="funciones/deletecliente.php?CED_CLI=<?php echo $f['CED_CLI']?>" class="btn btn-danger">
-                            <i class="fa fa-trash"></i>
-                            </a>
+                          <ul class="navbar-nav mr-auto">
+                          <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" ><i class="fa fa-cog fa-lg text-primary fa-lg" ></i></a>
+                          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                            <li><a class="dropdown-item" href="editcliente.php?CED_CLI=<?php echo $f['CED_CLI']?>"><i class="fa fa-pencil fa-lg"></i> Editar</a></li>
+                            <li><a class="dropdown-item" href="funciones/deletecliente.php?CED_CLI=<?php echo $f['CED_CLI']?>"><i class="fa fa-trash fa-lg"></i> Eliminar</a></li>
+                            </ul>
+                          </li>
+                          </ul>
                         </td>                    
                     </tr>
                     

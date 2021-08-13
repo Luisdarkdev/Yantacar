@@ -1,3 +1,4 @@
+
 <?php
 include ("includes/header.php")
 ?>
@@ -6,8 +7,9 @@ include ("includes/header.php")
         <div class="col-md-12">
           <div class="profile">
             <div class="info"><img class="user-img" src="images/usuario.png">
-              <h4>John Doe</h4>
-              <p>FrontEnd Developer</p>
+              <h4><?php echo $_SESSION['usuario'] ?></h4>
+              <p> <?php echo $_SESSION['cedula'] ?></p>
+              <p>Admin</p>
             </div>
             <div class="cover-image"></div>
           </div>
@@ -25,86 +27,78 @@ include ("includes/header.php")
             <div class="tab-pane active" id="user-settings">
               <div class="tile user-settings">
                 <h4 class="line-head">Configuracion</h4>
-                <form>
-                  <div class="row mb-4">
-                    <div class="col-md-4">
-                      <label>First Name</label>
-                      <input class="form-control" type="text">
-                    </div>
-                    <div class="col-md-4">
-                      <label>Last Name</label>
-                      <input class="form-control" type="text">
-                    </div>
+                <form action="funciones/actualizarusuario.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+
+                  <div class="form-group">
+                      <label>Cedula</label>
+                      <input class="form-control" readonly type="number" name="cedula" value="<?php echo $_SESSION['cedula'] ?>" required>
+                      <div class="invalid-feedback">Campo vacío,ingrese cedula</div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-8 mb-4">
-                      <label>Email</label>
-                      <input class="form-control" type="text">
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="col-md-8 mb-4">
-                      <label>Mobile No</label>
-                      <input class="form-control" type="text">
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="col-md-8 mb-4">
-                      <label>Office Phone</label>
-                      <input class="form-control" type="text">
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="col-md-8 mb-4">
-                      <label>Home Phone</label>
-                      <input class="form-control" type="text">
-                    </div>
+
+                  <div class="form-group">
+                      <label>Nombre usuario</label>
+                      <input class="form-control" type="text" name="usuario" value="<?php echo $_SESSION['usuario'] ?>" required>
+                      <div class="invalid-feedback">Campo vacío, ingrese usuario</div>
                   </div>
-                  <div class="row mb-10">
-                    <div class="col-md-12">
-                      <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i> Save</button>
-                    </div>
+
+                    
+                  <div class="form-group">
+                  <label>Contraseña</label>
+                      <input class="form-control" type="text" name="contra" value="<?php echo $_SESSION['password'] ?>" required>
+                      <div class="invalid-feedback">Campo vacío, ingrese contraseña</div> 
                   </div>
-                </form>
+                    
+                      <div class="form-group">
+                      <label>Correo</label>
+                      <input class="form-control" type="email" id="email"  value="<?php echo $_SESSION['email'] ?>" name="correo" required>
+                      <span id="emailOK"></span>
+                    </div>
+                      
+
+
+
+                    <div class="tile-footer">
+                    <button class="btn btn-primary" type="submit-all" name="actualizar" id="">Actualizar</button>
+                    </div>
+                  </form>
               </div>
             </div>
             <div class="tab-pane fade" id="user-new">
               <div class="tile user-settings">
                 <h4 class="line-head">Nuevo usuario</h4>
-                <form>
-                  <div class="row mb-4">
-                    <div class="col-md-4">
-                      <label>First Name</label>
-                      <input class="form-control" type="text">
-                    </div>
-                    <div class="col-md-4">
-                      <label>Last Name</label>
-                      <input class="form-control" type="text">
-                    </div>
+                <form action="funciones/insertusu.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+
+                  <div class="form-group">
+                      <label>Cedula</label>
+                      <input class="form-control" type="number" name="cedula" required>
+                      <div class="invalid-feedback">Campo vacío,ingrese cedula</div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-8 mb-4">
-                      <label>Email</label>
-                      <input class="form-control" type="text">
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="col-md-8 mb-4">
-                      <label>Mobile No</label>
-                      <input class="form-control" type="text">
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="col-md-8 mb-4">
-                      <label>Office Phone</label>
-                      <input class="form-control" type="text">
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="col-md-8 mb-4">
-                      <label>Home Phone</label>
-                      <input class="form-control" type="text">
-                    </div>
+             
+                  <div class="form-group">
+                      <label>Nombre usuario</label>
+                      <input class="form-control" type="text" name="usuario" required>
+                      <div class="invalid-feedback">Campo vacío, ingrese usuario</div>
                   </div>
-                  <div class="row mb-10">
-                    <div class="col-md-12">
-                      <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i> Save</button>
-                    </div>
+
+                    
+                  <div class="form-group">
+                  <label>Contraseña</label>
+                      <input class="form-control" type="text" name="contra" required>
+                      <div class="invalid-feedback">Campo vacío, ingrese contraseña</div> 
                   </div>
+                    
+                      <div class="form-group">
+                      <label>Correo</label>
+                      <input class="form-control" type="email" id="email" name="correo" required>
+                      <span id="emailOK"></span>
+                    </div>
+                      
+
+
+                 
+                    <div class="tile-footer">
+                    <button class="btn btn-primary" type="submit-all"  id="">Enviar</button>
+                    </div>
                 </form>
               </div>
             </div>
