@@ -74,6 +74,6 @@ if(!isset($cedula)){
         </li>
         <li><a class="app-menu__item" href="page-greservas.php"><i class="app-menu__icon fa fa-user-plus"></i><span class="app-menu__label">Gestionar Reservas</span></a></li>    
         <li><a class="app-menu__item" href="page-alquiler.php"><i class="app-menu__icon fa fa-calendar-check-o"></i><span class="app-menu__label">Gestion Alquiler</span></a></li>
-        <li><a class="app-menu__item" href="page-factura.php"><i class="app-menu__icon fa fa-window-maximize"></i><span class="app-menu__label">Facturas</span></a></li>
+        <li><a class="app-menu__item" href="factura.php"><i class="app-menu__icon fa fa-window-maximize"></i><span class="app-menu__label">Facturas</span></a></li>
       </ul>
     </aside>

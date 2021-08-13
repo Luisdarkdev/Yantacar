@@ -45,11 +45,6 @@ include ("includes/header.php")
                     </select>
                   </div>
                   <div class="form-group">
-                        <label class="col-form-label" for="dat">Fecha Reserva</label>
-                        <input class="form-control" type="Date" name="dat" id="dat"  required>
-                                <div class="invalid-feedback">Campo vacío Ingrese fecha</div>
-                   </div>
-                  <div class="form-group">
                         <label class="col-form-label" for="date">Fecha Inicio</label>
                         <input class="form-control" type="Date" name="date" id="date"  required>
                                 <div class="invalid-feedback">Campo vacío Ingrese fecha</div>

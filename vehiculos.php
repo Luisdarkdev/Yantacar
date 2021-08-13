@@ -16,7 +16,7 @@ include ("includes/header.php")
 		<div class="container">
 			<div class="row shop_box-top">
 			<?php while($f = $result_vehi->fetch_assoc()){ ?>
-				<div class="col-md-3 "><a href="alquilar.php">
+				<div class="col-md-3 "><a href="">
 					<img src="admin/<?php echo substr($f['IMG_VE'],3);?>" class="img-responsive" />
 					<span class="new-box">
 						<span class="new-label"><?php echo $f['PRECIO_VE']; ?>$</span>
@@ -26,7 +26,7 @@ include ("includes/header.php")
 						<p><?php echo $f['CAPACIDAD']; ?> personas</p>
 						<span class="actual"><?php echo $f['ANO']; ?></span><br>
 						<ul class="buttons">
-							<li class="cart"><a href="reservas.php?NUM_MAT=<?php">Reservar</a></li>
+							<li class="cart"><a href="reservas.php?NUM_MAT_VE=<?php echo $f['NUM_MAT_VE']?>&PRECIO_VE=<?php echo $f['PRECIO_VE']?>&IMG_VE=<?php echo $f['IMG_VE']?>">Reservar</a></li>
 							<div class="clear"> </div>
 					    </ul>
 				    </div>

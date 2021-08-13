@@ -122,8 +122,8 @@
         return true;
         }
         # funcion para ingresar reservas
-        public function InsertarReserva($nummat,$cliente,$dat,$date,$date1,$precio){
-            $resultado = $this->bd->query("INSERT INTO  reservas (NUM_MAT_VE,	CED_CLI,	FECHA_RE,	FECHA_INI_RE,	FECHA_FIN,	PRECIO, ESTADO) VALUES ('$nummat','$cliente','$dat','$date','$date1','$precio','En espera')");
+        public function InsertarReserva($nummat,$cliente,$date,$date1,$precio){
+            $resultado = $this->bd->query("INSERT INTO  reservas (NUM_MAT_VE,	CED_CLI,	FECHA_RE,	FECHA_INI_RE,	FECHA_FIN,	PRECIO, ESTADO) VALUES ('$nummat','$cliente',now(),'$date','$date1','$precio','En espera')");
             return true;
             }
         public function  ConsultaReservaGeneral(){
@@ -173,6 +173,20 @@
             $resultado = $this->bd->query("SELECT * FROM clientes  WHERE CED_CLI='$ced' AND  PASS_CLI='$cla'");
             return $resultado;
               
+        }
+        public function  ConsultaFacturaGeneral(){
+            $resultado = $this->bd->query("SELECT * FROM factura");
+            return $resultado;
+        }
+        public function InsertarFactura($ced_usu,$ced_cli,$cod_al,$nom_mar,$num,$fei,$fef,$pre){
+            $resultado = $this->bd->query("INSERT INTO  factura (CED_USU,	CED_CLI,	COD_AL,	FECHA_FAC,	NOMBRE,	MATRICULA,	FECHA_INIT,	FECHA_FIN,	TOTAL_FAC	
+            ) VALUES ('$ced_usu','$ced_cli','$cod_al',now(),'$nom_mar','$num','$fei','$fef','$pre')");
+            return true;
+
+        }
+        public function ActualizarReserva1($cod_al){
+            $resultado = $this->bd->query("UPDATE alquiler  set ESTADO='Facturado :v' WHERE COD_AL = '$cod_al'");
+            return true;
         }
 
  

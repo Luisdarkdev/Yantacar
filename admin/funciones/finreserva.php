@@ -19,6 +19,6 @@
   /*  $_SESSION['mensaje']= 'Se guardo correctamente';
     $_SESSION['tipo']= 'success';*/
     // header ('Location: consulta_cliente.php');
-  header ('Location: ../page-galquiler.php');
+  header ('Location: ../page-alquiler.php');
 
 ?>

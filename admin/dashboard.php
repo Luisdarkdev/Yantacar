@@ -25,7 +25,7 @@ include ("includes/header.php")
           <div class="widget-small info coloured-icon"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
             <div class="info">
               <h4>VEHICULOS</h4>
-              <p><b>25</b></p>
+              <p><b>4</b></p>
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@ include ("includes/header.php")
           <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
             <div class="info">
               <h4>RESERVAS</h4>
-              <p><b>10</b></p>
+              <p><b>5</b></p>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@ include ("includes/header.php")
           <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
             <div class="info">
               <h4>USUARIOS</h4>
-              <p><b>500</b></p>
+              <p><b>3</b></p>
             </div>
           </div>
         </div>

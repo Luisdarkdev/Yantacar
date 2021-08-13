@@ -51,11 +51,8 @@
                         <td class="text-center"> <?php echo $f['PRECIO']; ?> </td>
                         <td class="text-center"> <?php echo $f['ESTADO']; ?> </td>
                         <td class="text-center" >
-                            <a href="funciones/cancelre.php?COD_AL=<?php echo $f['COD_AL']?>" class="btn btn-warning">
-                            <i class="fa fa-ban"></i>   
-                            </a>
-                            <a href="funciones/factura.php?COD_AL=<?php echo $f['COD_AL']?>" class="btn btn-success">
-                            <i class="fa fa-car"></i>   
+                            <a href="funciones/Facturar.php?COD_AL=<?php echo $f['COD_AL']?>& NUM_MAT_VE=<?php echo $f['NUM_MAT_VE']?>&CED_CLI=<?php echo $f['CED_CLI']?>&FECHA_INI_AL=<?php echo $f['FECHA_INI_AL']?>&FECHA_FIN_AL=<?php echo $f['FECHA_FIN_AL']?>&PRECIO=<?php echo $f['PRECIO']?>" class="btn btn-success">
+                            <i class="fa fa-credit-card-alt"></i>   
                             </a>
                         </td>                    
                     </tr>

@@ -41,7 +41,7 @@ include ("includes/header.php")
 						    </p>
 						    <div class="remember">
 
-							    <input type="submit" name="Submit" class="button" value="Ingresar"><div class="clear"></div>
+							    <input type="submit" name="submit" class="button" value="Ingresar"><div class="clear"></div>
 							 </div>
 						  </fieldset>
 						 </form>
@@ -64,9 +64,6 @@ include ("includes/header.php")
 
         if($result_clave->num_rows>0){
             // Sesiones
-            $_SESSION['cedu'] = $ced;
-            $_SESSION['usu'] = $nom_mar;    
-            header('location: vehiculos.php');
 			?>
             <script>
                 Swal.fire({
@@ -77,6 +74,10 @@ include ("includes/header.php")
                 })
             </script>
         <?php 
+            $_SESSION['cedu'] = $ced;
+            $_SESSION['usu'] = $nom_mar;    
+            header('location: index.php');
+			
         }else{ ?>
             <script>
                 Swal.fire({
