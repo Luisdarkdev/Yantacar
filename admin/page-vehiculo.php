@@ -5,7 +5,7 @@
 
     # Objeto para heredar | La variable $clase_cli hereda todo de la Clase_sql
     $clase_ve = new Clase_sql();
-    $result_mod = $clase_ve-> ConsultaModelos();
+    $result_mod = $clase_ve-> ConsultaMarca();
 ?>
 <?php 
 include ("includes/header.php")
@@ -33,17 +33,22 @@ include ("includes/header.php")
                         <label class="col-form-label" for="nummatricula">Ingrese numero de matricula</label>
                         <input class="form-control text-uppercase" type="text" name="nummatricula" id="nummatricula" placeholder="AAA 0123" required>
                                 <div class="invalid-feedback">Campo vacío Ingrese matricula</div>
-
                    </div>
                    <div class="form-group">
-                    <label for="nommodelo">Modelo</label>
-                    <select class="form-control" name="nommodelo" id="nommodelo">
+                    <label for="marca">Marca</label>
+                    <select class="form-control" name="marca" id="marca">
                     <?php while($fic = $result_mod->fetch_assoc()){?>
-                        <option value="<?php echo $fic['NOM_MOD']?>"><?php echo $fic['NOM_MOD']?></option>
+                        <option value="<?php echo $fic['NOM_MARC']?>"><?php echo $fic['NOM_MARC']?></option>
                     <?php } ?>
                                                     
                     </select>
                   </div>
+                   <div class="form-group">
+                        <label class="col-form-label" for="nommodel">Ingrese Nombre del Modelo</label>
+                        <input class="form-control" type="text" name="nommodel" placeholder="Modelo" required>
+                                <div class="invalid-feedback">Campo vacío Ingrese modelo</div>
+                   </div>    
+                   
                   <div class="form-group">
                         <label class="col-form-label" for="kvehiculo">Ingrese kilometraje vehiculo</label>
                         <input class="form-control" type="text" name="kvehiculo" id="kvehiculo" placeholder="Kilometraje" required>
@@ -54,12 +59,39 @@ include ("includes/header.php")
                         <input class="form-control" type="text" name="cvehiculo" id="cvehiculo" placeholder="Color" required>
                                 <div class="invalid-feedback">Campo vacío Ingrese Color</div>
                    </div>
+                   <div class="form-group">
+                        <label class="col-form-label" for="capacidad">Capacidad de personas</label>
+                        <input class="form-control" type="text" name="capacidad"  placeholder="Capacidad" required>
+                                <div class="invalid-feedback">Campo vacío Ingrese capacidad</div>
+                   </div>
+                   <div class="form-group">
+                   <label class="col-form-label" for="combustible">Tipo de combustible</label>
+                        <select class="form-control" name="combustible" >
+                            <option value="Gasolina">Gasolina</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="Electrico">Electrico</option>
+                            <option value="Hibrido">Hirbido</option>
+                        </select>
+                   </div>
+                   <div class="form-group">
+                   <label class="col-form-label" for="transmision">Tipo de Transmision</label>
+                        <select class="form-control" name="transmision" >
+                            <option value="Manual">Manual</option>
+                            <option value="Automatica">Automatica</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="presio">Precio por dia</label>
+                        <input class="form-control" type="text" name="presio"  placeholder="Precio" required>
+                                <div class="invalid-feedback">Campo vacío Ingrese Precio</div>
+                   </div>
                     <div class="form-group">
                     <h5 >Seleccionar imagen</h5>
                         <input type="file" name="file" id="file" accept=".jpg,.png,.jpeg" >
                         <p></p>
                         <div id="preview" class="styleImage"></div>
                     </div>
+                   
                     <div class="tile-footer">
                     <button class="btn btn-primary" type="submit-all"  id="">Enviar</button>
                     </div>

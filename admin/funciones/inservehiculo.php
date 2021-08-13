@@ -5,16 +5,21 @@
     $clase_usu = new Clase_sql();
 
     $nummatricula = $_POST['nummatricula'];
-    $nommodelo = $_POST['nommodelo'];
+    $marca = $_POST['marca'];
+    $nommodel = $_POST['nommodel'];
     $kvehiculo = $_POST['kvehiculo'];
     $cvehiculo = $_POST['cvehiculo'];
+    $capacidad = $_POST['capacidad'];
+    $combustible = $_POST['combustible'];
+    $transmision = $_POST['transmision'];
+    $presio = $_POST['presio'];
     $vimage1=$_FILES["file"]["name"];
     $archivo=$_FILES["file"]["tmp_name"];
     $ruta="../images/imgcar";
     $ruta=$ruta."/".$vimage1;
     move_uploaded_file($archivo,$ruta);
 
-    $result = $clase_usu-> InsertarVehiculo($nummatricula,$nommodelo,$kvehiculo,$cvehiculo,$vimage1);
+    $result = $clase_usu-> InsertarVehiculo($nummatricula,$marca,$nommodel,$kvehiculo,$cvehiculo,$capacidad,$combustible,$transmision,$presio,$ruta);
 
   /*  $_SESSION['mensaje']= 'Se guardo correctamente';
     $_SESSION['tipo']= 'success';*/

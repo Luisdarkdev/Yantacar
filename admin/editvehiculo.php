@@ -3,30 +3,42 @@
     require_once 'config/config.php';
     require_once 'config/clase_sql.php';
 $clase_ve = new Clase_sql();
-$result_mod = $clase_ve-> ConsultaModelos();
+$result_mod = $clase_ve-> ConsultaMarca();
 
 if(isset($_GET['NUM_MAT_VE'])){
     $cod = $_GET['NUM_MAT_VE'];
     $result = $clase_ve-> ConsultarVehiculoUnico($cod);
     $row =mysqli_fetch_array($result);
     $num_mat= $row['NUM_MAT_VE'];
-    $modelo = $row['NOM_MOD'];
+    $marca = $row['NOM_MARC'];
+    $modelo = $row['NOM_MODEL'];
     $kilometraje = $row['KM_VE'];
-    $color = $row['COLOR_VE']; 
+    $color = $row['COLOR_VE'];
+    $capacidad = $row['CAPACIDAD'];
+    $combustible = $row['COMBUSTIBLE'];
+    $transmision = $row['TRANSMISION'];
+    $presio = $row['PRECIO_VE'];  
 }
 if(isset($_POST['actualizar'])){
     $cod = $_GET['NUM_MAT_VE'];
     $nummatricula = $_POST['nummatricula'];
-    $nommodelo = $_POST['nommodelo'];
+    $marca = $_POST['marca'];
+    $nommodel = $_POST['nommodel'];
     $kvehiculo = $_POST['kvehiculo'];
     $cvehiculo = $_POST['cvehiculo'];
+    $capacidad = $_POST['capacidad'];
+    $combustible = $_POST['combustible'];
+    $transmision = $_POST['transmision'];
+    $presio = $_POST['presio'];
     $vimage1=$_FILES["file"]["name"];
     $archivo=$_FILES["file"]["tmp_name"];
     $ruta="images/imgcar";
     $ruta=$ruta."/".$vimage1;
     move_uploaded_file($archivo,$ruta);
+    $ruta="../".$ruta;
 
-    $result = $clase_ve-> ActualizarVehiculo($cod,$nummatricula,$nommodelo,$kvehiculo,$cvehiculo,$vimage1);
+    $result = $clase_ve-> ActualizarVehiculo($cod,$nummatricula,$marca,$nommodel,$kvehiculo,$cvehiculo,$capacidad,$combustible,$transmision,$presio,$ruta);
+
     // header ('Location: consulta_cliente.php');
   header ('Location: page-gvehiculo.php');
 }
@@ -57,13 +69,19 @@ if(isset($_POST['actualizar'])){
 
                    </div>
                    <div class="form-group">
-                    <label for="nommodelo">Modelo</label>
-                    <select class="form-control" name="nommodelo" id="nommodelo" >
+                    <label for="marca">Marca</label>
+                    <select class="form-control" name="marca" id="marca">
                     <?php while($fic = $result_mod->fetch_assoc()){?>
-                        <option value="<?php echo $fic['NOM_MOD']?>"><?php echo $fic['NOM_MOD']?></option>
+                        <option value="<?php echo $fic['NOM_MARC']?>"><?php echo $fic['NOM_MARC']?></option>
                     <?php } ?>
+                                                    
                     </select>
                   </div>
+                   <div class="form-group">
+                        <label class="col-form-label" for="nommodel">Ingrese Nombre del Modelo</label>
+                        <input class="form-control" type="text" name="nommodel" placeholder="Modelo"  value="<?php echo $modelo;?>" required>
+                                <div class="invalid-feedback">Campo vacío Ingrese modelo</div>
+                   </div>    
                   <div class="form-group">
                         <label class="col-form-label" for="kvehiculo">Ingrese kilometraje vehiculo</label>
                         <input class="form-control" type="text" name="kvehiculo" id="kvehiculo" value="<?php echo $kilometraje;?>" placeholder="Kilometraje" required>
@@ -73,6 +91,32 @@ if(isset($_POST['actualizar'])){
                         <label class="col-form-label" for="cvehiculo">Ingrese color Vehiculo</label>
                         <input class="form-control" type="text" name="cvehiculo" id="cvehiculo" value="<?php echo $color;?>" placeholder="Color" required>
                                 <div class="invalid-feedback">Campo vacío Ingrese Color</div>
+                   </div>
+                   <div class="form-group">
+                        <label class="col-form-label" for="capacidad">Capacidad de personas</label>
+                        <input class="form-control" type="text" name="capacidad"  placeholder="Capacidad"  value="<?php echo $capacidad;?>" required>
+                                <div class="invalid-feedback">Campo vacío Ingrese capacidad</div>
+                   </div>
+                   <div class="form-group">
+                   <label class="col-form-label" for="combustible">Tipo de combustible</label>
+                        <select class="form-control" name="combustible" >
+                            <option value="Gasolina">Gasolina</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="Electrico">Electrico</option>
+                            <option value="Hibrido">Hirbido</option>
+                        </select>
+                   </div>
+                   <div class="form-group">
+                   <label class="col-form-label" for="transmision">Tipo de Transmision</label>
+                        <select class="form-control" name="transmision" >
+                            <option value="Manual">Manual</option>
+                            <option value="Automatica">Automatica</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="presio">Precio por dia</label>
+                        <input class="form-control" type="text" name="presio"  placeholder="Precio"  value="<?php echo $presio;?>" required>
+                                <div class="invalid-feedback">Campo vacío Ingrese Precio</div>
                    </div>
                     <div class="form-group">
                     <h5 >Seleccionar imagen</h5>
