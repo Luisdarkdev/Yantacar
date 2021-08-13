@@ -169,6 +169,11 @@
             $resultado = $this->bd->query("UPDATE usuarios  set NOM_USE='$usuario', PASS_USE='$contra',COR_USE='$correo' WHERE CED_USU = '$cedula'");
             return true;
         }
+        public function ConsultaClienteClave($ced, $cla){
+            $resultado = $this->bd->query("SELECT * FROM clientes  WHERE CED_CLI='$ced' AND  PASS_CLI='$cla'");
+            return $resultado;
+              
+        }
 
  
 

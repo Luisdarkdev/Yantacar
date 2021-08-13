@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -70,15 +71,7 @@
 	    	    </div>
 	            <div class="header_right">
 	    		  <!-- start search-->
-				      <div class="search-box">
-							<div id="sb-search" class="sb-search">
-								<form>
-									<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
-									<input class="sb-search-submit" type="submit" value="">
-									<span class="sb-icon-search"> </span>
-								</form>
-							</div>
-						</div>
+				     
 						<!----search-scripts---->
 						<script src="js/classie.js"></script>
 						<script src="js/uisearch.js"></script>
@@ -86,20 +79,15 @@
 							new UISearch( document.getElementById( 'sb-search' ) );
 						</script>
 						<!----//search-scripts---->
-				    <ul class="icon1 sub-icon1 profile_img">
+				    <ul class="icon1 sub-icon1 profile_img " >
 					 <li><a class="active-icon c1" href="#"> </a>
 						<ul class="sub-icon1 list">
-						  <div class="product_control_buttons">
-						  	<a href="#"><img src="images/edit.png" alt=""/></a>
-						  		<a href="#"><img src="images/close_edit.png" alt=""/></a>
-						  </div>
 						   <div class="clear"></div>
-						  <li class="list_img"><img src="images/1.jpg" alt=""/></li>
-						  <li class="list_desc"><h4><a href="#">velit esse molestie</a></h4><span class="actual">1 x
-                          $12.00</span></li>
+						  <li class="list_img"><img src="images/logo.jpg" alt=""/></li>
+						  <li class="list_desc"><h4><a href="#">Bienvenido</a></h4></li>
 						  <div class="login_buttons">
-							 <div class="check_button"><a href="checkout.php">Check out</a></div>
-							 <div class="login_button"><a href="login.php">Login</a></div>
+							 <div class="check_button"><a href="cerrar.php">Cerrar session</a></div>
+							 <div class="login_button"><a href="login.php">Ingresar</a></div>
 							 <div class="clear"></div>
 						  </div>
 						  <div class="clear"></div>

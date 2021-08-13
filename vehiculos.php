@@ -16,18 +16,17 @@ include ("includes/header.php")
 		<div class="container">
 			<div class="row shop_box-top">
 			<?php while($f = $result_vehi->fetch_assoc()){ ?>
-				<div class="col-md-3 shop_box"><a href="solo.php">
-					<img src="<?php echo substr($f['IMG_VE'],3);?>" class="img-responsive" alt=""/>
+				<div class="col-md-3 "><a href="alquilar.php">
+					<img src="admin/<?php echo substr($f['IMG_VE'],3);?>" class="img-responsive" />
 					<span class="new-box">
-						<span class="new-label">New</span>
+						<span class="new-label"><?php echo $f['PRECIO_VE']; ?>$</span>
 					</span>
 					<div class="shop_desc">
-						<h3><a href="#">aliquam volutp</a></h3>
-						<p>Lorem ipsum consectetuer adipiscing </p>
-						<span class="actual"><?php echo $f['PRECIO_VE']; ?>$</span><br>
+						<h3><?php echo $f['NOM_MODEL']; ?></h3>
+						<p><?php echo $f['CAPACIDAD']; ?> personas</p>
+						<span class="actual"><?php echo $f['ANO']; ?></span><br>
 						<ul class="buttons">
-							<li class="cart"><a href="solo.php">Aquilar</a></li>
-							<li class="shop_btn"><a href="#">Leer mas</a></li>
+							<li class="cart"><a href="reservas.php?NUM_MAT=<?php">Reservar</a></li>
 							<div class="clear"> </div>
 					    </ul>
 				    </div>

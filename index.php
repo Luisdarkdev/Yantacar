@@ -47,11 +47,13 @@ include ("includes/header.php")
 		<div class="container">
 			<h3 class="m_3">MARCAS</h3>
 			<div class="close_but"><i class="close1"> </i></div>
-			  <div class="row">
+     
+			  <div class="row ">
         <?php while($f = $result_cli->fetch_assoc()){ ?>
-          
-				<div class="col-md-3 top_box">
-				  <div class="view view-ninth"><a href="marcasphp">
+      
+    
+				<div class="col-md-3 ">
+				  <div class="view view-ninth"><a href="marcas.php?NOM_MARC=<?php echo $f['NOM_MARC'] ?>">
                     <img src="admin/<?php echo substr($f['IMG_MARCA'],3); ?>" class="img-responsive" alt=""/>
                     <div class="mask mask-1"> </div>
                     <div class="mask mask-2"> </div>
@@ -60,10 +62,13 @@ include ("includes/header.php")
                         <p>Solo lo encuentras en Yantcar</p>
                       </div>
                    </a> </div>
-                  <h4 class="m_4"><a href="marcas.php"><?php echo $f['NOM_MARC']; ?></a></h4>
+                  <h4 class="m_4" class="text"><a href="marcas.php?NOM_MARC=<?php echo $f['NOM_MARC'] ?>"><?php echo $f['NOM_MARC']; ?></a></h4>
             </div>
+
             <?php }?>
+            
 			</div>
+  
 		 </div>
 	    </div>
 	<?php include ("includes/footer.php")?>

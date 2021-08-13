@@ -16,9 +16,10 @@ if(isset($_POST['actualizar'])){
     $marca = $_POST['marca'];
     $vimage1=$_FILES["file"]["name"];
     $archivo=$_FILES["file"]["tmp_name"];
-    $ruta="../images/imgmar";
+    $ruta="images/imgmar";
     $ruta=$ruta."/".$vimage1;
     move_uploaded_file($archivo,$ruta);
+    $ruta="../".$ruta;
 
 
 
